@@ -1,5 +1,4 @@
-import { async } from "@firebase/util";
-import { authService, firebaseInstance } from "fBase";
+import { authService } from "fBase";
 import {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
