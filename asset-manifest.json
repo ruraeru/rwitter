@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/rwitter/static/js/main.690bea51.js",
+    "index.html": "/rwitter/index.html",
+    "main.690bea51.js.map": "/rwitter/static/js/main.690bea51.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.690bea51.js"
+  ]
+}
