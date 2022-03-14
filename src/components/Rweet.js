@@ -10,8 +10,10 @@ const Rweet = ({ rweetObj, isOwner }) => {
         const ok = window.confirm("해당 품목을 삭제하시겠습니까?");
         if (ok) {
             await deleteDoc(doc(dbService, "rweets", rweetObj.id));
-            const urlRef = ref(storageService, rweetObj.attachmentUrl);
-            await deleteObject(urlRef);
+            if (rweetObj.attachmentUrl !== "") {
+                const urlRef = ref(storageService, rweetObj.attachmentUrl);
+                await deleteObject(urlRef);
+            }
         }
     };
     const toggleEditing = () => setEditing((prev) => !prev);
@@ -46,7 +48,7 @@ const Rweet = ({ rweetObj, isOwner }) => {
                 </>
             ) : <>
                 <h4>{rweetObj.text}</h4>
-                {rweetObj.attachmentUrl && <img src={rweetObj.attachmentUrl} width="50px" height="50px" />}
+                {rweetObj.attachmentUrl && <img src={rweetObj.attachmentUrl} width="50px" height="50px" alt="img" />}
                 {isOwner && (
                     <>
                         <button onClick={onDeleteClick}>Delete Rweet</button>
